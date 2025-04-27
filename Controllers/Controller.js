@@ -1,32 +1,23 @@
-// fetchHandlers.js
+import { responseHelper } from "../Utils/responseHelper.js";  // don't forget the `.js` if you're using ESModules
 
 const fetchDataAll = (req, res) => {
-    res.statusCode = 200; // small 's'
-    res.setHeader('Content-Type', 'text/html');
-    const response = `<div>This is the All Data page</div>`;
-    res.end(response);
+    const response = { message: 'All data are fetched' };
+    responseHelper(res, 200, response);
 };
 
-const fetchDataId = (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    const response = `<div>This is the Data By ID page</div>`;
-    res.end(response);
+const fetchDataId = (req, res, id) => {
+    const response = { message: `The id you requested is ${id}` };
+    responseHelper(res, 200, response);
 };
 
 const fetchDataContact = (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    const response = `<div>This is the Contact page</div>`;
-    res.end(response);
+    const response = { message: 'This is the Contact page' };
+    responseHelper(res, 200, response);
 };
 
 const fetchDataAbout = (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    const response = `<div>This is the About page</div>`;
-    res.end(response);
+    const response = { message: 'This is the About page' };
+    responseHelper(res, 200, response);
 };
 
-// Export them all together
 export { fetchDataAll, fetchDataId, fetchDataContact, fetchDataAbout };
